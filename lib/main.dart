@@ -113,8 +113,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Map jsonMap = {"111": 111, "222": 2222, "333": 333};
-    var jsonBean = json.encode(jsonMap).toString();
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 50,
@@ -197,31 +195,14 @@ class _MyHomePageState extends State<MyHomePage> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height - 170 - MediaQuery.of(context).padding.top - MediaQuery.of(context).padding.bottom,
               decoration: BoxDecoration(color: Colors.grey[900]),
-              child: AndroidView(
+              child:  AndroidView(
                   viewType: 'plugins.flutter.io/custom_platform_view',
                   creationParams: {
                     "key": "i am key",
-                    "value": "i am value",
-                    "bean": jsonBean
+                    "value": "i am value"
                   },
                   creationParamsCodec: StandardMessageCodec()),
             ),
-            // Container(height: 30),
-            // Container(
-            //     decoration: BoxDecoration(
-            //         color: const Color(0xEEEEEEEE),
-            //         borderRadius: BorderRadius.circular(8)),
-            //     child: TextButton(
-            //       onPressed: () {
-            //         plateform.invokeMethod(
-            //             "androidfunbyflutter", {"name": "ysh", "age": 28});
-            //       },
-            //       child: const Text(
-            //         "传递K线数据给Android原生",
-            //         style:
-            //             TextStyle(fontSize: 18, color: Colors.lightBlueAccent),
-            //       ),
-            //     )),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
